@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import PokemonsContext from "./contexts/PokemonContext";
+
+import { color } from "./utils/colors";
 
 export default function Pokemon({ name, image, types, id }) {
+  const { myTeam, setMyTeam } = useContext(PokemonsContext);
+  let colorOne, colorTwo;
+  colorOne = color(types[0].type.name);
+  colorTwo = color(types[1]?.type.name);
+
+  function handleClick() {
+    // const body = {
+    //   id,
+    //   name,
+    //   image,
+    //   colors: { colorOne, colorTwo },
+    // };
+    setMyTeam({
+      id,
+      name,
+      image,
+      colors: { colorOne, colorTwo },
+    });
+  }
+
   return (
-    <Container typeOne={types[0].type.name} typeTwo={types[1]?.type.name}>
+    <Container colorOne={colorOne} colorTwo={colorTwo} onClick={handleClick}>
       <div className="id">#{id}</div>
       <div className="avatar">
         <img src={image} alt={name}></img>
@@ -37,89 +60,13 @@ const Container = styled.div`
     display: flex;
     bottom: 8px;
     .one {
-      background-color: ${(props) => {
-        if (props.typeOne === "bug") {
-          return "#89960B";
-        } else if (props.typeOne === "water") {
-          return "#5CC1ED";
-        } else if (props.typeOne === "fairy") {
-          return "#DA93DD";
-        } else if (props.typeOne === "ghost") {
-          return "#AD6EEC";
-        } else if (props.typeOne === "normal") {
-          return "#C3C0B8";
-        } else if (props.typeOne === "ice") {
-          return "#9BDEFB";
-        } else if (props.typeOne === "dark") {
-          return "#322C26";
-        } else if (props.typeOne === "fighting") {
-          return "#80311D";
-        } else if (props.typeOne === "grass") {
-          return "#68BB2B";
-        } else if (props.typeOne === "poison") {
-          return "#924694";
-        } else if (props.typeOne === "flying") {
-          return "#5D74D5";
-        } else if (props.typeOne === "dragon") {
-          return "#6B57D2";
-        } else if (props.typeOne === "fire") {
-          return "#EC5D35";
-        } else if (props.typeOne === "ground") {
-          return "#D0B155";
-        } else if (props.typeOne === "psychic") {
-          return "#DA3063";
-        } else if (props.typeOne === "eletric") {
-          return "#F4CB38";
-        } else if (props.typeOne === "rock") {
-          return "#9D853C";
-        } else if (props.typeOne === "steel") {
-          return "#8F8E9E";
-        }
-      }};
+      background-color: ${(props) => props.colorOne};
       height: 2px;
       width: 50%;
     }
     .two {
       height: 2px;
-      background-color: ${(props) => {
-        if (props.typeTwo === "bug") {
-          return "#89960B";
-        } else if (props.typeTwo === "water") {
-          return "#5CC1ED";
-        } else if (props.typeTwo === "fairy") {
-          return "#DA93DD";
-        } else if (props.typeTwo === "ghost") {
-          return "#AD6EEC";
-        } else if (props.typeTwo === "normal") {
-          return "#C3C0B8";
-        } else if (props.typeTwo === "ice") {
-          return "#9BDEFB";
-        } else if (props.typeTwo === "dark") {
-          return "#322C26";
-        } else if (props.typeTwo === "fighting") {
-          return "#80311D";
-        } else if (props.typeTwo === "grass") {
-          return "#68BB2B";
-        } else if (props.typeTwo === "poison") {
-          return "#924694";
-        } else if (props.typeTwo === "flying") {
-          return "#5D74D5";
-        } else if (props.typeTwo === "dragon") {
-          return "#6B57D2";
-        } else if (props.typeTwo === "fire") {
-          return "#EC5D35";
-        } else if (props.typeTwo === "ground") {
-          return "#D0B155";
-        } else if (props.typeTwo === "psychic") {
-          return "#DA3063";
-        } else if (props.typeTwo === "eletric") {
-          return "#F4CB38";
-        } else if (props.typeTwo === "rock") {
-          return "#9D853C";
-        } else if (props.typeTwo === "steel") {
-          return "#8F8E9E";
-        }
-      }};
+      background-color: ${(props) => props.colorTwo};
       width: 50%;
     }
   }

@@ -4,20 +4,24 @@ import Editable from "./Editable";
 import Pokeball from "./Pokeball";
 import ConfimartionOption from "./ConfirmationOption";
 import DeleteOption from "./DeleteOption";
+import { useContext } from "react";
+import PokemonsContext from "./contexts/PokemonContext";
 
 export default function MyTeam() {
+  const { myTeam } = useContext(PokemonsContext);
+  console.log(myTeam);
   return (
     <Container>
       <Editable />
       <Row>
-        <Pokeball />
-        <Pokeball />
-        <Pokeball />
+        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam} />
       </Row>
       <SecondRow>
-        <Pokeball />
-        <Pokeball />
-        <Pokeball />
+        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam} />
       </SecondRow>
       <Buttons>
         <DeleteOption color={"#EEBFBC"} />
@@ -33,6 +37,7 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
+  display: flex;
   margin-left: 15px;
   svg {
     margin-right: 32px;
@@ -40,6 +45,7 @@ const Row = styled.div`
 `;
 
 const SecondRow = styled.div`
+  display: flex;
   margin-top: 25px;
   margin-left: 35px;
   svg {
