@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Teams from "./components/Teams";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
