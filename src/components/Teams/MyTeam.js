@@ -39,18 +39,21 @@ export default function MyTeam() {
           clicked={clicked}
           setClicked={setClicked}
           id={1}
+          boolean={false}
         />
         <Pokeball
           pokemon={myTeam[1]}
           clicked={clicked}
           setClicked={setClicked}
           id={2}
+          boolean={false}
         />
         <Pokeball
           pokemon={myTeam[2]}
           clicked={clicked}
           setClicked={setClicked}
           id={3}
+          boolean={false}
         />
       </Row>
       <SecondRow>
@@ -59,18 +62,21 @@ export default function MyTeam() {
           clicked={clicked}
           setClicked={setClicked}
           id={4}
+          boolean={false}
         />
         <Pokeball
           pokemon={myTeam[4]}
           clicked={clicked}
           setClicked={setClicked}
           id={5}
+          boolean={false}
         />
         <Pokeball
           pokemon={myTeam[5]}
           clicked={clicked}
           setClicked={setClicked}
           id={6}
+          boolean={false}
         />
       </SecondRow>
       <Buttons>

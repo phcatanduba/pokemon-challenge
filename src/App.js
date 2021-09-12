@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
 import Teams from "./components/Teams/Teams";
 import PokemonContext from "./components/contexts/PokemonContext";
-import { useState } from "react";
+import TeamsCreated from "./components/TeamsCreated/TeamsCreated";
 
 export default function App() {
   const [myTeam, setMyTeam] = useState([]);
@@ -16,7 +17,7 @@ export default function App() {
             <Teams />
           </Route>
           <Route path="/create" exact>
-            <p>Ainda nao implementado</p>
+            <TeamsCreated />
           </Route>
         </Switch>
       </Router>
