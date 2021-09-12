@@ -4,27 +4,61 @@ import Editable from "./Editable";
 import Pokeball from "./Pokeball";
 import ConfimartionOption from "./ConfirmationOption";
 import DeleteOption from "./DeleteOption";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PokemonsContext from "./contexts/PokemonContext";
 
 export default function MyTeam() {
   const { myTeam } = useContext(PokemonsContext);
+  const [clicked, setClicked] = useState(undefined);
+
   return (
     <Container>
       <Editable />
       <Row>
-        <Pokeball pokemon={myTeam[0]} />
-        <Pokeball pokemon={myTeam[1]} />
-        <Pokeball pokemon={myTeam[2]} />
+        <Pokeball
+          pokemon={myTeam[0]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={1}
+        />
+        <Pokeball
+          pokemon={myTeam[1]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={2}
+        />
+        <Pokeball
+          pokemon={myTeam[2]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={3}
+        />
       </Row>
       <SecondRow>
-        <Pokeball pokemon={myTeam[3]} />
-        <Pokeball pokemon={myTeam[4]} />
-        <Pokeball pokemon={myTeam[5]} />
+        <Pokeball
+          pokemon={myTeam[3]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={4}
+        />
+        <Pokeball
+          pokemon={myTeam[4]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={5}
+        />
+        <Pokeball
+          pokemon={myTeam[5]}
+          clicked={clicked}
+          setClicked={setClicked}
+          id={6}
+        />
       </SecondRow>
       <Buttons>
         <DeleteOption color={"#EEBFBC"} />
-        <ConfimartionOption color={"#C7EFAA"} />
+        <ConfimartionOption
+          color={myTeam.length === 6 ? "#8FDA58" : "#C7EFAA"}
+        />
       </Buttons>
     </Container>
   );

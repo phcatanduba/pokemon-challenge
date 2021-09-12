@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import ConfimartionOption from "./ConfirmationOption";
 import PokemonsContext from "./contexts/PokemonContext";
 
 import { color } from "./utils/colors";
@@ -29,7 +30,14 @@ export default function Pokemon({ name, image, types, id }) {
   }
 
   return (
-    <Container colorOne={colorOne} colorTwo={colorTwo} onClick={handleClick}>
+    <Container
+      colorOne={colorOne}
+      colorTwo={colorTwo}
+      onClick={handleClick}
+      id={myTeam.find((pokemon) => {
+        return pokemon.id === id;
+      })}
+    >
       <div className="id">#{id}</div>
       <div className="avatar">
         <img src={image} alt={name}></img>
@@ -39,6 +47,9 @@ export default function Pokemon({ name, image, types, id }) {
         <div className="one"></div>
         <div className="two"></div>
       </div>
+      <span>
+        <ConfimartionOption color={"#90D861"} />
+      </span>
     </Container>
   );
 }
@@ -49,6 +60,13 @@ const Container = styled.div`
   align-items: center;
   margin-right: 5px;
   margin-bottom: 5px;
+
+  span {
+    display: ${(props) => (props.id ? "block" : "none")};
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
 
   p {
     color: #333652;

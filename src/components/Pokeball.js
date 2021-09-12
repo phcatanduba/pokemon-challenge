@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-export default function Pokeball({ pokemon }) {
+export default function Pokeball({ pokemon, clicked, setClicked, id }) {
+  function handleClick() {
+    if (id === clicked) {
+      setClicked(undefined);
+    } else {
+      setClicked(id);
+    }
+  }
   return (
-    <Container>
+    <Container onClick={handleClick} id={id} clicked={clicked}>
+      <div></div>
       <svg
         width="69"
         height="69"
@@ -28,11 +36,30 @@ const Container = styled.div`
   position: relative;
   display: flex;
 
+  div {
+    display: ${(props) =>
+      props.clicked === undefined
+        ? "none"
+        : props.clicked === props.id
+        ? "none"
+        : "block"};
+    background: #c4c4c4;
+    mix-blend-mode: saturation;
+    opacity: 0.85;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
   img {
     position: absolute;
     z-index: 1;
     height: 80px;
-    top: calc(0px - 5px);
-    left: calc(0px - 5px);
+    top: -5px;
+    left: -5px;
   }
 `;
