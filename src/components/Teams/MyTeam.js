@@ -100,18 +100,19 @@ const Container = styled.div`
 
 const Row = styled.div`
   display: flex;
-  margin-left: 15px;
   svg {
-    margin-right: 32px;
+    width: 100%;
+    padding-right: 15px;
   }
 `;
 
 const SecondRow = styled.div`
   display: flex;
-  margin-top: 25px;
-  margin-left: 35px;
+  padding-top: 25px;
+  margin-left: 25px;
   svg {
-    margin-right: 32px;
+    width: 105%;
+    padding-right: 15px;
   }
 `;
 

@@ -41,7 +41,6 @@ export default function Pokeball({
 
 const Container = styled.div`
   position: relative;
-  display: flex;
 
   span {
     z-index: 3;
