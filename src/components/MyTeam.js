@@ -6,9 +6,11 @@ import ConfimartionOption from "./ConfirmationOption";
 import DeleteOption from "./DeleteOption";
 import { useContext, useState } from "react";
 import PokemonsContext from "./contexts/PokemonContext";
+import axios from "axios";
 
 export default function MyTeam() {
   const { myTeam, setMyTeam } = useContext(PokemonsContext);
+  const [text, setText] = useState("My Team");
   const [clicked, setClicked] = useState(undefined);
 
   function remove() {
@@ -19,9 +21,18 @@ export default function MyTeam() {
     }
   }
 
+  function confirm() {
+    const body = myTeam;
+    body.forEach((pokemon) => (pokemon.teamName = text));
+    const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/`, body);
+    promise.then(() => {
+      setMyTeam([]);
+    });
+  }
+
   return (
     <Container>
-      <Editable />
+      <Editable text={text} setText={setText} />
       <Row>
         <Pokeball
           pokemon={myTeam[0]}
@@ -69,6 +80,7 @@ export default function MyTeam() {
         />
         <ConfimartionOption
           color={myTeam.length === 6 ? "#8FDA58" : "#C7EFAA"}
+          confirm={myTeam.length === 6 ? confirm : () => {}}
         />
       </Buttons>
     </Container>

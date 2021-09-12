@@ -12,12 +12,6 @@ export default function Pokemon({ name, image, types, id }) {
   colorOne = color(types[0].type.name);
   colorTwo = color(types[1]?.type.name);
   function handleClick() {
-    // const body = {
-    //   id,
-    //   name,
-    //   image,
-    //   colors: { colorOne, colorTwo },
-    // };
     if (myTeam.length < 6) {
       myTeam.push({
         id,

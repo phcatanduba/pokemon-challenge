@@ -3,9 +3,8 @@ import styled from "styled-components";
 
 import { RiPencilFill } from "react-icons/ri";
 
-export default function Editable() {
+export default function Editable({ text, setText }) {
   const [isEditing, setEditing] = useState(false);
-  const [text, setText] = useState("My Team");
   const placeholder = "My Team";
 
   function handleKeyDown(e) {
