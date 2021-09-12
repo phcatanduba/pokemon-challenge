@@ -9,8 +9,11 @@ export default function Pokemon({ name, image, types, id }) {
   const { myTeam, setMyTeam } = useContext(PokemonsContext);
 
   let colorOne, colorTwo;
+
+  //SELECT THE COLOR ACCORDING TO THE TYPE OF POKEMON
   colorOne = color(types[0].type.name);
   colorTwo = color(types[1]?.type.name);
+
   function handleClick() {
     if (myTeam.length < 6) {
       myTeam.push({
