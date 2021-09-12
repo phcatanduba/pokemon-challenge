@@ -9,7 +9,6 @@ import PokemonsContext from "./contexts/PokemonContext";
 
 export default function MyTeam() {
   const { myTeam } = useContext(PokemonsContext);
-  console.log(myTeam);
   return (
     <Container>
       <Editable />
