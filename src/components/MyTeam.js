@@ -8,8 +8,16 @@ import { useContext, useState } from "react";
 import PokemonsContext from "./contexts/PokemonContext";
 
 export default function MyTeam() {
-  const { myTeam } = useContext(PokemonsContext);
+  const { myTeam, setMyTeam } = useContext(PokemonsContext);
   const [clicked, setClicked] = useState(undefined);
+
+  function remove() {
+    if (clicked !== undefined) {
+      myTeam.splice(clicked - 1, 1);
+      setClicked(undefined);
+      setMyTeam([...myTeam]);
+    }
+  }
 
   return (
     <Container>
@@ -55,7 +63,10 @@ export default function MyTeam() {
         />
       </SecondRow>
       <Buttons>
-        <DeleteOption color={"#EEBFBC"} />
+        <DeleteOption
+          color={clicked === undefined ? "#EEBFBC" : "#F8635A"}
+          remove={remove}
+        />
         <ConfimartionOption
           color={myTeam.length === 6 ? "#8FDA58" : "#C7EFAA"}
         />

@@ -4,12 +4,13 @@ export default function Pokeball({ pokemon, clicked, setClicked, id }) {
   function handleClick() {
     if (id === clicked) {
       setClicked(undefined);
-    } else {
+    } else if (pokemon) {
       setClicked(id);
     }
   }
   return (
-    <Container onClick={handleClick} id={id} clicked={clicked}>
+    <Container id={id} clicked={clicked}>
+      <span onClick={handleClick}></span>
       <div></div>
       <svg
         width="69"
@@ -35,6 +36,16 @@ export default function Pokeball({ pokemon, clicked, setClicked, id }) {
 const Container = styled.div`
   position: relative;
   display: flex;
+
+  span {
+    z-index: 3;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
 
   div {
     display: ${(props) =>

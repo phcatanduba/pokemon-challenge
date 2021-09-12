@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import ConfimartionOption from "./ConfirmationOption";
 import PokemonsContext from "./contexts/PokemonContext";
@@ -7,10 +7,10 @@ import { color } from "./utils/colors";
 
 export default function Pokemon({ name, image, types, id }) {
   const { myTeam, setMyTeam } = useContext(PokemonsContext);
+
   let colorOne, colorTwo;
   colorOne = color(types[0].type.name);
   colorTwo = color(types[1]?.type.name);
-
   function handleClick() {
     // const body = {
     //   id,
@@ -35,7 +35,7 @@ export default function Pokemon({ name, image, types, id }) {
       colorTwo={colorTwo}
       onClick={handleClick}
       id={myTeam.find((pokemon) => {
-        return pokemon.id === id;
+        return pokemon?.id === id;
       })}
     >
       <div className="id">#{id}</div>
