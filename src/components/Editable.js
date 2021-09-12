@@ -44,7 +44,6 @@ const Section = styled.section`
   .container {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
   }
 `;
 
