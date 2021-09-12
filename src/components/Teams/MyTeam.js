@@ -5,7 +5,7 @@ import Pokeball from "./Pokeball";
 import ConfimartionOption from "./ConfirmationOption";
 import DeleteOption from "./DeleteOption";
 import { useContext, useState } from "react";
-import PokemonsContext from "./contexts/PokemonContext";
+import PokemonsContext from "../contexts/PokemonContext";
 import axios from "axios";
 
 export default function MyTeam() {

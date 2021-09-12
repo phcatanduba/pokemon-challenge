@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "../Header";
 import MyTeam from "./MyTeam";
 import Pokemons from "./Pokemons";
 

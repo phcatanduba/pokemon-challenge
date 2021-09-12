@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import ConfimartionOption from "./ConfirmationOption";
-import PokemonsContext from "./contexts/PokemonContext";
+import PokemonsContext from "../contexts/PokemonContext";
 
-import { color } from "./utils/colors";
+import { color } from "../utils/colors";
 
 export default function Pokemon({ name, image, types, id }) {
   const { myTeam, setMyTeam } = useContext(PokemonsContext);
