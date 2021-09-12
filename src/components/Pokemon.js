@@ -17,12 +17,15 @@ export default function Pokemon({ name, image, types, id }) {
     //   image,
     //   colors: { colorOne, colorTwo },
     // };
-    setMyTeam({
-      id,
-      name,
-      image,
-      colors: { colorOne, colorTwo },
-    });
+    if (myTeam.length < 6) {
+      myTeam.push({
+        id,
+        name,
+        image,
+        colors: { colorOne, colorTwo },
+      });
+      setMyTeam([...myTeam]);
+    }
   }
 
   return (

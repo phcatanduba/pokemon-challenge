@@ -14,14 +14,14 @@ export default function MyTeam() {
     <Container>
       <Editable />
       <Row>
-        <Pokeball pokemon={myTeam} />
-        <Pokeball pokemon={myTeam} />
-        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam[0]} />
+        <Pokeball pokemon={myTeam[1]} />
+        <Pokeball pokemon={myTeam[2]} />
       </Row>
       <SecondRow>
-        <Pokeball pokemon={myTeam} />
-        <Pokeball pokemon={myTeam} />
-        <Pokeball pokemon={myTeam} />
+        <Pokeball pokemon={myTeam[3]} />
+        <Pokeball pokemon={myTeam[4]} />
+        <Pokeball pokemon={myTeam[5]} />
       </SecondRow>
       <Buttons>
         <DeleteOption color={"#EEBFBC"} />
